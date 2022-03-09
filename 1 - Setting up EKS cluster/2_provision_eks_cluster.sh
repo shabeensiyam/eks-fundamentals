@@ -17,8 +17,6 @@ managedNodeGroups:
   instanceType: t3.small
   ssh:
     enableSsm: true
-
- To enable all of the control plane logs, uncomment below:
  cloudWatch:
   clusterLogging:
     enableTypes: ["*"]
