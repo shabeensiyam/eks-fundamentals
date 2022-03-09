@@ -17,7 +17,8 @@ managedNodeGroups:
   instanceType: t3.small
   ssh:
     enableSsm: true
- cloudWatch:
+
+cloudWatch:
   clusterLogging:
     enableTypes: ["*"]
 EOF
