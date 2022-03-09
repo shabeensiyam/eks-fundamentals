@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eksdemo-crystal
+  labels:
+    app: eksdemo-crystal
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eksdemo-crystal
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: eksdemo-crystal
+    spec:
+      containers:
+      - image: brentley/ecsdemo-crystal:latest
+        imagePullPolicy: Always
+        name: eksdemo-crystal
+        ports:
+        - containerPort: 3000
+          protocol: TCP

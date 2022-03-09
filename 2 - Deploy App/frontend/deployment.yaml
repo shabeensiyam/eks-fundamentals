@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eksdemo-frontend
+  labels:
+    app: eksdemo-frontend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eksdemo-frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: eksdemo-frontend
+    spec:
+      containers:
+      - image: brentley/ecsdemo-frontend:latest
+        imagePullPolicy: Always
+        name: eksdemo-frontend
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        env:
+        - name: CRYSTAL_URL
+          value: "http://eksdemo-crystal.default.svc.cluster.local/crystal"
+        - name: NODEJS_URL
+          value: "http://eksdemo-nodejs.default.svc.cluster.local/"

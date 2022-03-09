@@ -12,7 +12,7 @@ metadata:
 availabilityZones: ["us-east-1a", "us-east-1b"]
 
 managedNodeGroups:
-- name: nodegroup
+- name: nodegroup-eksctl
   desiredCapacity: 3
   instanceType: t3.small
   ssh:
