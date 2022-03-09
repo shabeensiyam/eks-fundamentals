@@ -1,11 +1,6 @@
 # Install pre-requisites
 sudo yum -y install jq gettext bash-completion moreutils
 
-echo 'yq() {
-  docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
-}' | tee -a ~/.bashrc && source ~/.bashrc
-
-
 # Install AWS CLI
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
