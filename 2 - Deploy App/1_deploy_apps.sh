@@ -26,3 +26,4 @@ kubectl scale deployment eksdemo-nodejs --replicas=3
 kubectl scale deployment eksdemo-crystal --replicas=3
 kubectl scale deployment eksdemo-frontend --replicas=3
 kubectl get deployments
+
