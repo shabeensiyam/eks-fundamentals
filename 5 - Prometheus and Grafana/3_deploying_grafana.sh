@@ -21,6 +21,7 @@ helm install grafana grafana/grafana \
     --set adminPassword='EKS!sAWSome' \
     --values ${HOME}/environment/grafana/grafana.yaml \
     --set service.type=LoadBalancer
+kubectl get all -n grafana
 
 # Retrieve ELB Address
 export ELB=$(kubectl get svc -n grafana grafana -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
@@ -28,3 +29,5 @@ echo "http://$ELB"
 
 # Retrieve Password for Grafana
 kubectl get secret --namespace grafana grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+# Import Grafana Graph ID 3119 for Cluster Metrics and 15055 for Pod Metrics
