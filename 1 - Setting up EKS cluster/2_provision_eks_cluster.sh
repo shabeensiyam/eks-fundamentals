@@ -28,3 +28,4 @@ eksctl create cluster -f ekscluster.yaml
 
 # Cleanup
 eksctl delete nodegroup --cluster ekscluster-eksctl --name nodegroup-eksctl
+eksctl delete cluster ekscluster-eksctl
