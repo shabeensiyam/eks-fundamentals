@@ -25,3 +25,6 @@ EOF
 
 # Create cluster from the manifest file
 eksctl create cluster -f ekscluster.yaml
+
+# Cleanup
+eksctl delete nodegroup --cluster ekscluster-eksctl --name nodegroup-eksctl
